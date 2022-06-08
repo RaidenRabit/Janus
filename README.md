@@ -16,3 +16,9 @@
 2. `install metamask and connect it to your ganache network`
 3. `deploy the contracts by running the 'deploy contracts' script from package.json`
 4. `run the start script from package.json`
+
+
+## Disclaimer
+parts of the code were taken and adapted to solidity 0.8.14 from:
+- https://github.com/Jeiwan/zuniswapv2
+- https://www.dappuniversity.com/bootcamp
