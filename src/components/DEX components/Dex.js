@@ -36,7 +36,7 @@ class Dex extends Component {
                             this.props.createExchange(name1, symbol1, amount1, name2, symbol2, amount2);
                         }}>
                             <div>
-                                <label className="float-left"><b>Exchanges</b></label>
+                                <label className="float-left"><b>Create new Exchange</b></label>
                                 <span className="float-right text-muted">
                 </span>
                             </div>

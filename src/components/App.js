@@ -104,8 +104,8 @@ class App extends Component {
   }
 
   checkTokens = async () => {
-    const a = await this.state.tokenFactory.methods.getAllTokens().call();
-    console.log(a);
+    const tokenArray = await this.state.tokenFactory.methods.getAllTokens().call();
+    console.log(tokenArray);
   }
 
   constructor(props) {

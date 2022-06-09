@@ -18,11 +18,11 @@ contract Whitelist is IWhitelist {
         owner = msg.sender;
     }
 
-    function countWhitelist() public returns(uint) {
+    function countWhitelist() public view returns(uint) {
         return whitelistSize;
     }
 
-    function checkUser(string memory _data) public returns(bool) {
+    function checkUser(string memory _data) public view returns(bool) {
         bytes memory tempEmptyStringTest = bytes(_data);
         if (tempEmptyStringTest.length == 0) {
             revert EmptyDataProvided();

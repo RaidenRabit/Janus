@@ -3,6 +3,9 @@ pragma solidity ^0.8.14;
 
 import "./mocks/ERC20Mintable.sol";
 import "./JanusAddOn.sol";
+import "./interfaces/ITreasury.sol";
+import "./interfaces/IOracle.sol";
+import "./interfaces/IWhitelist.sol";
 
 contract TokenFactory {
 
@@ -24,39 +27,51 @@ contract TokenFactory {
     }
 
 
-    address[] deployedContracts;
-    mapping(address => bool) public deployedContractsCheck;
-    address public addOnAddress = address(0);
 
-    function setAddOnAddress(address _address) public {
-        if (addOnAddress == address(0)) {
-            addOnAddress = _address;
-        }
+    IWhitelist public whitelist;
+    ITreasury public treasury;
+    IOracle public oracle;
+    ERC20Mintable public proprietaryToken;
+    address[] deployedTokenAddresses;
+    mapping(address => bool) public deployedTokenAddressesCheck;
+    mapping(string => address) public deployedTokenSymbolsToAddress;
+    mapping(string => bool) public deployedTokenSymbolStrings;
+
+    constructor(address _whitelistAddress, address _treasuryAddress, address _proprietaryTokenAddress, address _oracleAddress) {
+        whitelist = IWhitelist(_whitelistAddress);
+        proprietaryToken = ERC20Mintable(_proprietaryTokenAddress);
+        oracle = IOracle(_oracleAddress);
+        treasury = ITreasury(_treasuryAddress);
     }
 
     function getAllTokens() public view returns(address[] memory) {
-        return deployedContracts;
+        return deployedTokenAddresses;
     }
 
     function addToken(address _token) public {
-        if(!deployedContractsCheck[_token]) {
-            deployedContracts.push(_token);
-            deployedContractsCheck[_token] = true;
+        if(!deployedTokenAddressesCheck[_token]) {
+            deployedTokenAddresses.push(_token);
+            deployedTokenAddressesCheck[_token] = true;
         }
     }
 
     event TokenDeployed(address tokenAddress, string name, string symbol, uint256 amount);
 
-    function deployToken(string memory name_, string memory symbol_, uint256 amount_) public returns(address) {
-        ERC20Mintable t = new ERC20Mintable(name_, symbol_);
-        deployedContracts.push(address(t));
-        deployedContractsCheck[address(t)] = true;
-        t.mint(amount_, address(t));
-        if (addOnAddress != address(0)) {
-            JanusAddOn addOn = JanusAddOn(addOnAddress);
-            addOn.awardProprietaryTokenForStaking(amount_, msg.sender, toAsciiString(msg.sender));
+    function stakeToken(string memory _name, string memory _symbol, uint _amount) public {
+        whitelist.checkUser(toAsciiString(msg.sender));
+
+        if (deployedTokenSymbolStrings[_symbol]) {
+            ERC20Mintable t = ERC20Mintable(deployedTokenSymbolsToAddress[_symbol]);
+            t.mint(_amount, msg.sender);
+            treasury.awardProprietaryTokenForStaking(address(t), _amount, msg.sender);
+        } else {
+            ERC20Mintable t = new ERC20Mintable(_name, _symbol);
+            deployedTokenAddresses.push(address(t));
+            deployedTokenAddressesCheck[address(t)] = true;
+            deployedTokenSymbolStrings[_symbol] = true;
+            deployedTokenSymbolsToAddress[_symbol] = address(t);
+            t.mint(_amount, msg.sender);
+            treasury.awardProprietaryTokenForStaking(address(t), _amount, msg.sender);
         }
-        emit TokenDeployed(address(t), t.getName(), t.getSymbol(), t.balanceOf(address (t)));
-        return address(t);
     }
 }
