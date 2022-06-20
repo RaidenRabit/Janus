@@ -3,13 +3,22 @@ import React, { Component } from 'react';
 class Dex extends Component {
 
     render() {
+        const { nativeTokensBalance } = this.props;
+
         return (
             <div id="content" className="mt-3">
 
                 <div className="card mb-4">
                     <div className="card-body">
-                        <button onClick={() => {this.props.checkTokens()}}
-                                className="btn btn-secondary">Check Tokens</button>
+                        <div className="row">
+                            <div className="col-8">
+                                <label>Native Tokens Balance: {nativeTokensBalance}</label>
+                            </div>
+                            <div className="col-2">
+                                <button onClick={() => {this.props.checkTokens()}}
+                                        className="btn btn-secondary">Check Tokens</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

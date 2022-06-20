@@ -119,4 +119,12 @@ contract TokenFactoryTest is DSTest {
 
         assertGt(treasury.getBalanceOfStaker(address(this)), 0);
     }
+
+    function test_setTotalAmountOfToken_newValue() public {
+        uint amount = 100;
+
+        factory.setTotalAmountOfToken(address(token), amount);
+
+        assertEq(factory.getTotalAmountOfToken(address(token)), amount);
+    }
 }

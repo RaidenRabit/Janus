@@ -6,6 +6,8 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 7545,
+      gas: 8721974,
+      from: "0x6cDb5174A1074947E931f0FF903B0965961787D3",
       network_id: "*" // Match any network id
     },
   },

@@ -45,11 +45,14 @@ contract WhitelistTest is DSTest {
     Vm vm = Vm(0x7109709ECfa91a80626fF3989D68f67F5b1DD12D);
     address public owner;
     address public addr1;
+    address public addr2;
     Whitelist whitelist;
     CheatCodes cheats = CheatCodes(HEVM_ADDRESS);
 
     function setUp() public {
         owner = address(this);
+        addr1 = cheats.addr(1);
+        addr2 = cheats.addr(2);
         whitelist = new Whitelist();
     }
 
@@ -90,6 +93,15 @@ contract WhitelistTest is DSTest {
     function testWhitelistUser_FailOnlyOwnerCanWhitelist() public {
         vm.expectRevert(encodeError("OnlyOwnerCanWhitelist()"));
         vm.prank(addr1);
+        whitelist.whitelistUser(toAsciiString(address(this)));
+    }
+
+    function testWhitelistUser_CanWhitelistMultipleUsers() public {
+        whitelist.whitelistUser(toAsciiString(address(this)));
+        whitelist.whitelistUser(toAsciiString(addr1));
+
+        vm.expectRevert(encodeError("OnlyOwnerCanWhitelist()"));
+        vm.prank(addr2);
         whitelist.whitelistUser(toAsciiString(address(this)));
     }
 }

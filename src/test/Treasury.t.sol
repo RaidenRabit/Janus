@@ -63,8 +63,10 @@ contract TreasuryTest is DSTest {
     function setUp() public {
         token = new ERC20Mintable(tokenName, tokenSymbol);
         owner = address(this);
+        addr1 = cheats.addr(1);
         Whitelist whitelist = new Whitelist();
         whitelist.whitelistUser(toAsciiString(address(this)));
+        whitelist.whitelistUser(toAsciiString(address(0)));
         oracle = new Oracle(address(token), address(whitelist));
         treasury = new Treasury(address(token), address(oracle), address(whitelist));
     }
@@ -82,7 +84,7 @@ contract TreasuryTest is DSTest {
     function test_getBalanceOfStaker_fails_NoWhitelist() public {
         vm.expectRevert(encodeError("DataNotWhitelisted()"));
         vm.prank(addr1);
-        treasury.getBalanceOfStaker(address(this));
+        treasury.getBalanceOfStaker(addr1);
     }
 
     function test_getBalanceOfStaker_success_0() public {

@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c7bb2c3-2516-4c04-9bde-19038e9ba08c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/contracts/Oracle.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contracts/Treasury.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contracts/interfaces/IOracle.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contracts/interfaces/ITreasury.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Oracle.t.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Treasury.t.sol" afterDir="false" />
+    <list default="true" id="9c7bb2c3-2516-4c04-9bde-19038e9ba08c" name="Changes" comment="added some changes">
+      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/CreateOptions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/MyOptions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/OptionsOverview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/TokensOverview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/contracts/interfaces/IOptionsStruct.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/JanusAddOn.t.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/ERC20.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ERC20.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/ERC20Mintable.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ERC20Mintable.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/IERC20.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IERC20.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/ITokenFactory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ITokenFactory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/IWhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IWhitelist.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/IZuniswapV2Callee.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IZuniswapV2Callee.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/IZuniswapV2Factory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IZuniswapV2Factory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/IZuniswapV2Pair.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IZuniswapV2Pair.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/JanusAddOn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/JanusAddOn.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/Math.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/Math.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/Migrations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/TokenFactory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/TokenFactory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/UQ112x112.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/UQ112x112.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/Whitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/Whitelist.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/ZuniswapV2Factory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ZuniswapV2Factory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/abis/ZuniswapV2Pair.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ZuniswapV2Pair.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Add-On components/CreateFuturesView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DEX components/Dex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DEX components/Dex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/JanusAddOn.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/JanusAddOn.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contracts/TokenFactory.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/TokenFactory.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/Whitelist.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/Whitelist.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/mocks/ERC20Mintable.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/mocks/ERC20Mintable.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/Treasury.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/Treasury.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/interfaces/IJanusAddOn.sol" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/interfaces/ITokenFactory.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/interfaces/ITokenFactory.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/interfaces/ITreasury.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/interfaces/ITreasury.sol" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/TokenFactory.t.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TokenFactory.t.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Treasury.t.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Treasury.t.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Whitelist.t.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Whitelist.t.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/truffle-config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +58,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/eu/WebstormProjects/Janus/src/test",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eu/WebstormProjects/Janus/src/contracts/interfaces&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\eu\WebstormProjects\Janus\src\test" />
-      <recent name="C:\Users\eu\WebstormProjects\Janus\src\contracts" />
       <recent name="C:\Users\eu\WebstormProjects\Janus\src\contracts\interfaces" />
+      <recent name="C:\Users\eu\WebstormProjects\Janus\src\test" />
+      <recent name="C:\Users\eu\WebstormProjects\Janus\src\components\Add-On components" />
+      <recent name="C:\Users\eu\WebstormProjects\Janus\src\contracts" />
       <recent name="C:\Users\eu\WebstormProjects\Janus" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -55,7 +81,7 @@
       <recent name="C:\Users\eu\WebstormProjects\Janus\src\components\DEX components" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.deploy contracts">
     <configuration name="deploy contracts" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -89,8 +115,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.test contracts" />
-        <item itemvalue="npm.start web client" />
         <item itemvalue="npm.deploy contracts" />
+        <item itemvalue="npm.start web client" />
       </list>
     </recent_temporary>
   </component>
@@ -102,8 +128,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654694647599</updated>
-      <workItem from="1654694649635" duration="31052000" />
+      <workItem from="1654694649635" duration="31561000" />
+      <workItem from="1655133952977" duration="610000" />
+      <workItem from="1655402422579" duration="2471000" />
+      <workItem from="1655408718316" duration="742000" />
+      <workItem from="1655476287052" duration="41571000" />
+      <workItem from="1655681225536" duration="10353000" />
     </task>
+    <task id="LOCAL-00001" summary="added some changes">
+      <created>1654751079824</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654751079824</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,5 +158,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some changes" />
   </component>
 </project>

@@ -39,6 +39,7 @@ contract Treasury is ITreasury {
     error ZeroAddress();
     error ZeroAmount();
     error NotStaking();
+    error CannotReduceFurther();
 
     // holds all the stakers (aka. Liquidity Providers)
     address[] public stakers;
@@ -94,7 +95,7 @@ contract Treasury is ITreasury {
     }
 
     function getBalanceOfStaker(address _staker) public returns(uint) {
-        whitelist.checkUser(toAsciiString(msg.sender));
+        whitelist.checkUser(toAsciiString(_staker));
         if (_staker == address(0)) {
             revert ZeroAddress();
         }
@@ -102,5 +103,31 @@ contract Treasury is ITreasury {
             revert NotStaking();
         }
         return stakingBalance[_staker];
+    }
+
+    function reduceBalanceOfStaker(address _staker, uint _amount) public returns(uint) {
+        whitelist.checkUser(toAsciiString(msg.sender));
+        if (_staker == address(0)) {
+            revert ZeroAddress();
+        }
+        if (!hasStaked[_staker]) {
+            revert NotStaking();
+        }
+        if (!isStaking[_staker]) {
+            revert NotStaking();
+        }
+        uint currentBalance = stakingBalance[_staker];
+        if (currentBalance - _amount < 0) {
+            revert CannotReduceFurther();
+        }
+        stakingBalance[_staker] = currentBalance - _amount;
+        return stakingBalance[_staker];
+    }
+
+    function getBalanceOfStaker1() public returns(uint) {
+        if (!hasStaked[msg.sender]) {
+            return 0;
+        }
+        return stakingBalance[msg.sender];
     }
 }

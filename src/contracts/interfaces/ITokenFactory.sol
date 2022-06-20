@@ -5,5 +5,5 @@ interface ITokenFactory {
 
     function getAllTokens() external returns(address[] memory);
 
-    function deployToken(string memory, string memory, uint256) external;
+    function stakeToken(string memory, string memory, uint) external returns(address);
 }

@@ -34,7 +34,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"checkUser\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"whitelistUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/interfaces/IWhitelist.sol\":\"IWhitelist\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/interfaces/IWhitelist.sol\":{\"keccak256\":\"0x247dbd326674b7a8ac794aa0b70d824f650d012a2fb7b05139c53cc057d71332\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://a6cd98c294c707859789096e30325a9dd2f2662bb1ed62ea216bbcf2af9af430\",\"dweb:/ipfs/QmYuVzdcjrgCczuso9zAYBnqK43uRZqJ1nM5nU4v4ZxGDw\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"checkUser\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"whitelistUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/interfaces/IWhitelist.sol\":\"IWhitelist\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/interfaces/IWhitelist.sol\":{\"keccak256\":\"0x247dbd326674b7a8ac794aa0b70d824f650d012a2fb7b05139c53cc057d71332\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://a6cd98c294c707859789096e30325a9dd2f2662bb1ed62ea216bbcf2af9af430\",\"dweb:/ipfs/QmYuVzdcjrgCczuso9zAYBnqK43uRZqJ1nM5nU4v4ZxGDw\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -48,15 +48,15 @@
     "absolutePath": "project:/src/contracts/interfaces/IWhitelist.sol",
     "exportedSymbols": {
       "IWhitelist": [
-        1774
+        3286
       ]
     },
-    "id": 1775,
+    "id": 3287,
     "license": "Unlicense",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1761,
+        "id": 3273,
         "literals": [
           "solidity",
           "^",
@@ -64,7 +64,7 @@
           ".14"
         ],
         "nodeType": "PragmaDirective",
-        "src": "39:24:8"
+        "src": "39:24:12"
       },
       {
         "abstract": false,
@@ -73,36 +73,36 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 1774,
+        "id": 3286,
         "linearizedBaseContracts": [
-          1774
+          3286
         ],
         "name": "IWhitelist",
-        "nameLocation": "77:10:8",
+        "nameLocation": "77:10:12",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "1eb41b71",
-            "id": 1768,
+            "id": 3280,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "checkUser",
-            "nameLocation": "104:9:8",
+            "nameLocation": "104:9:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1764,
+              "id": 3276,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1763,
+                  "id": 3275,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1768,
-                  "src": "114:15:8",
+                  "scope": 3280,
+                  "src": "114:15:12",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -110,10 +110,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1762,
+                    "id": 3274,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "114:6:8",
+                    "src": "114:6:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -122,21 +122,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "113:17:8"
+              "src": "113:17:12"
             },
             "returnParameters": {
-              "id": 1767,
+              "id": 3279,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1766,
+                  "id": 3278,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1768,
-                  "src": "148:4:8",
+                  "scope": 3280,
+                  "src": "148:4:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -144,10 +144,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1765,
+                    "id": 3277,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "148:4:8",
+                    "src": "148:4:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -156,36 +156,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "147:6:8"
+              "src": "147:6:12"
             },
-            "scope": 1774,
-            "src": "95:59:8",
+            "scope": 3286,
+            "src": "95:59:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "80505003",
-            "id": 1773,
+            "id": 3285,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "whitelistUser",
-            "nameLocation": "171:13:8",
+            "nameLocation": "171:13:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1771,
+              "id": 3283,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1770,
+                  "id": 3282,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1773,
-                  "src": "185:15:8",
+                  "scope": 3285,
+                  "src": "185:15:12",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -193,10 +193,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1769,
+                    "id": 3281,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "185:6:8",
+                    "src": "185:6:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -205,35 +205,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "184:17:8"
+              "src": "184:17:12"
             },
             "returnParameters": {
-              "id": 1772,
+              "id": 3284,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "210:0:8"
+              "src": "210:0:12"
             },
-            "scope": 1774,
-            "src": "162:49:8",
+            "scope": 3286,
+            "src": "162:49:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 1775,
-        "src": "67:147:8",
+        "scope": 3287,
+        "src": "67:147:12",
         "usedErrors": []
       }
     ],
-    "src": "39:177:8"
+    "src": "39:177:12"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.14+commit.80d49f37.Emscripten.clang"
+    "version": "0.8.15+commit.e14f2714.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-08T14:28:08.182Z",
+  "updatedAt": "2022-06-20T01:56:22.768Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

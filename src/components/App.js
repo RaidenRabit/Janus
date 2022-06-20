@@ -8,12 +8,21 @@ import './App.css';
 import TokenFactory from '../abis/TokenFactory.json';
 import ZuniswapV2Factory from '../abis/ZuniswapV2Factory.json';
 import ZuniswapV2Pair from "../abis/ZuniswapV2Pair.json";
+import Treasury from '../abis/Treasury.json';
+import ERC20Mintable from '../abis/ERC20Mintable.json';
+import JanusAddOn from '../abis/JanusAddOn.json';
+
+import TokensOverview from "./Add-On components/TokensOverview";
+import OptionsOverview from "./Add-On components/OptionsOverview";
+import CreateOptions from "./Add-On components/CreateOptions";
+import MyOptions from "./Add-On components/MyOptions";
 
 class App extends Component {
 
   async componentWillMount() {
     await this.loadWeb3()
     await this.loadBlockchainData()
+    await this.checkTokens();
   }
 
   async getPairsData(exchanges) {
@@ -63,6 +72,26 @@ class App extends Component {
     } else {
       window.alert('TokenFactory contract not deployed to detected network.')
     }
+
+    // Load Treasury
+    const treasuryData = Treasury.networks[networkId];
+    if(treasuryData) {
+      const treasury = new web3.eth.Contract(Treasury.abi, treasuryData.address);
+      const nativeTokensBalance = await treasury.methods.getBalanceOfStaker1().call();
+      this.setState({ treasury });
+      this.setState({ nativeTokensBalance });
+    } else {
+      window.alert('Treasury contract not deployed to detected network.')
+    }
+
+    // Load AddOn
+    const addOnData = JanusAddOn.networks[networkId];
+    if(addOnData) {
+      const addOn = new web3.eth.Contract(JanusAddOn.abi, addOnData.address);
+      this.setState({ addOn });
+    } else {
+      window.alert('JanusAddOn contract not deployed to detected network.')
+    }
     this.setState({ loading: false })
   }
 
@@ -81,9 +110,9 @@ class App extends Component {
 
   createExchange = async (name1, symbol1, amount1, name2, symbol2, amount2) => {
     this.setState({loading: true});
-    await this.state.tokenFactory.methods.deployToken(name1, symbol1, amount1)
+    await this.state.tokenFactory.methods.stakeToken1(name1, symbol1, amount1)
         .send({from: this.state.account});
-    await this.state.tokenFactory.methods.deployToken(name2, symbol2, amount2)
+    await this.state.tokenFactory.methods.stakeToken1(name2, symbol2, amount2)
         .send({from: this.state.account});
     const a = await this.state.tokenFactory.methods.getAllTokens().call();
     this.state.factory.methods.createPair(a[a.length - 2], a[a.length - 1])
@@ -91,6 +120,23 @@ class App extends Component {
         .on('transactionHash', (hash) => {
           this.setState({loading: false})
         });
+  }
+
+  getTotalAmountOfToken = async (tokenAddress) => {
+    const web3 = window.web3;
+    const amount = await this.state.tokenFactory.methods.getTotalAmountOfToken(tokenAddress).call();
+    console.log(amount);
+    console.log(tokenAddress);
+    const erc20Mintable = new web3.eth.Contract(ERC20Mintable.abi, tokenAddress);
+    const title = await erc20Mintable.methods.getName().call();
+    const symbol = await erc20Mintable.methods.getSymbol().call();
+    const token = {
+      title,
+      symbol,
+      amount,
+      address: tokenAddress,
+    };
+    return token;
   }
 
   checkLibrary = async (factoryAddress, token0Address, token1Address) => {
@@ -105,7 +151,45 @@ class App extends Component {
 
   checkTokens = async () => {
     const tokenArray = await this.state.tokenFactory.methods.getAllTokens().call();
-    console.log(tokenArray);
+    const tokens = [];
+    for (const t of tokenArray) {
+      const token = await this.getTotalAmountOfToken(t);
+      tokens.push(token);
+    }
+    this.setState({ tokens });
+
+    const options = await this.state.addOn.methods.getAllOptions().call();
+    const marketOptions = options.filter((o) => o.buyerAddress === '0x0000000000000000000000000000000000000000');
+    const myOptions = options.filter((o) => o.buyerAddress === this.state.account.toString());
+    const nativeTokensBalance = await this.state.treasury.methods.getBalanceOfStaker1().call();
+    this.setState({
+      marketOptions,
+      myOptions,
+      nativeTokensBalance
+    });
+  }
+
+  buyOption = async (ID) => {
+    await this.state.addOn.methods.buyOption1(ID).send({from: this.state.account});
+  }
+
+  createOptions = async (isCall, tokenAddress, duration, amount, strikePrice, premiumValue) => {
+    // do nothing
+    console.log(!!isCall);
+    console.log(tokenAddress);
+    console.log(duration);
+    console.log(amount);
+    console.log(strikePrice);
+    console.log(premiumValue);
+    await this.state.addOn.methods.createOption(
+        this.state.account.toString(),
+        tokenAddress,
+        amount,
+        strikePrice,
+        premiumValue,
+        duration,
+        !!isCall
+    ).send({from: this.state.account});
   }
 
   constructor(props) {
@@ -114,10 +198,17 @@ class App extends Component {
       account: '0x0',
       factory: {},
       tokenFactory: {},
+      treasury: {},
       exchanges: [],
       pairsData: [],
       library: {},
-      loading: true
+      loading: true,
+      nativeTokensBalance: 0,
+      tokens: [],
+      erc20Mintable: {},
+      marketOptions: [],
+      myOptions: [],
+      addOn: {},
     }
   }
 
@@ -129,6 +220,7 @@ class App extends Component {
       content = <Dex
         createExchange={this.createExchange}
         checkTokens={this.checkTokens}
+        nativeTokensBalance={this.state.nativeTokensBalance}
       />
     }
 
@@ -155,6 +247,24 @@ class App extends Component {
                     checkLibrary={this.checkLibrary}
                     pairsData={this.state.pairsData}
                 />
+
+                <hr/>
+
+                <TokensOverview
+                    tokens={this.state.tokens}
+                />
+
+                <hr/>
+
+                <CreateOptions tokens={this.state.tokens} createOptions={this.createOptions} />
+
+                <hr/>
+
+                <OptionsOverview buyOption={this.buyOption} account={this.state.account} options={this.state.marketOptions} />
+
+                <hr/>
+
+                <MyOptions options={this.state.myOptions} />
               </div>
             </main>
           </div>

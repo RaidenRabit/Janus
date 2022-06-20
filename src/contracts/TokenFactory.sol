@@ -36,8 +36,14 @@ contract TokenFactory {
     mapping(address => bool) public deployedTokenAddressesCheck;
     mapping(string => address) public deployedTokenSymbolsToAddress;
     mapping(string => bool) public deployedTokenSymbolStrings;
+    mapping(address => uint) public tokenTotalAmount;
 
-    constructor(address _whitelistAddress, address _treasuryAddress, address _proprietaryTokenAddress, address _oracleAddress) {
+    constructor(
+        address _whitelistAddress,
+        address _treasuryAddress,
+        address _proprietaryTokenAddress,
+        address _oracleAddress
+    ) {
         whitelist = IWhitelist(_whitelistAddress);
         proprietaryToken = ERC20Mintable(_proprietaryTokenAddress);
         oracle = IOracle(_oracleAddress);
@@ -57,12 +63,40 @@ contract TokenFactory {
 
     event TokenDeployed(address tokenAddress, string name, string symbol, uint256 amount);
 
-    function stakeToken(string memory _name, string memory _symbol, uint _amount) public {
+    function getTotalAmountOfToken(address _token) public view returns(uint) {
+        return tokenTotalAmount[_token];
+    }
+
+    function setTotalAmountOfToken(address _token, uint _amount) public {
+        tokenTotalAmount[_token] = _amount;
+    }
+
+    function stakeToken(string memory _name, string memory _symbol, uint _amount) public returns(address) {
         whitelist.checkUser(toAsciiString(msg.sender));
 
         if (deployedTokenSymbolStrings[_symbol]) {
             ERC20Mintable t = ERC20Mintable(deployedTokenSymbolsToAddress[_symbol]);
             t.mint(_amount, msg.sender);
+            tokenTotalAmount[address(t)] += _amount;
+            treasury.awardProprietaryTokenForStaking(address(t), _amount, msg.sender);
+            return address(t);
+        } else {
+            ERC20Mintable t = new ERC20Mintable(_name, _symbol);
+            deployedTokenAddresses.push(address(t));
+            deployedTokenAddressesCheck[address(t)] = true;
+            deployedTokenSymbolStrings[_symbol] = true;
+            deployedTokenSymbolsToAddress[_symbol] = address(t);
+            t.mint(_amount, msg.sender);
+            treasury.awardProprietaryTokenForStaking(address(t), _amount, msg.sender);
+            return address(t);
+        }
+    }
+
+    function stakeToken1(string memory _name, string memory _symbol, uint _amount) public {
+        if (deployedTokenSymbolStrings[_symbol]) {
+            ERC20Mintable t = ERC20Mintable(deployedTokenSymbolsToAddress[_symbol]);
+            t.mint(_amount, msg.sender);
+            tokenTotalAmount[address(t)] += _amount;
             treasury.awardProprietaryTokenForStaking(address(t), _amount, msg.sender);
         } else {
             ERC20Mintable t = new ERC20Mintable(_name, _symbol);

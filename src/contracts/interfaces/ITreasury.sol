@@ -13,4 +13,6 @@ interface ITreasury {
     function getAwardRate() external returns(uint);
 
     function setAwardRate(uint newRate) external returns(uint);
+
+    function reduceBalanceOfStaker(address staker, uint amount) external returns(uint);
 }
