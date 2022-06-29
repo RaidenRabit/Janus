@@ -1,46 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c7bb2c3-2516-4c04-9bde-19038e9ba08c" name="Changes" comment="added some changes">
-      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/CreateOptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/MyOptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/OptionsOverview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Add-On components/TokensOverview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contracts/interfaces/IOptionsStruct.sol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/JanusAddOn.t.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2_deploy_contracts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/ERC20.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ERC20.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/ERC20Mintable.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ERC20Mintable.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/IERC20.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IERC20.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/ITokenFactory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ITokenFactory.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/IWhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IWhitelist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/IZuniswapV2Callee.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IZuniswapV2Callee.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/IZuniswapV2Factory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IZuniswapV2Factory.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/IZuniswapV2Pair.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/IZuniswapV2Pair.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/JanusAddOn.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/JanusAddOn.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/Math.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/Math.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/Migrations.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/TokenFactory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/TokenFactory.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/UQ112x112.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/UQ112x112.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/Whitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/Whitelist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/ZuniswapV2Factory.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ZuniswapV2Factory.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abis/ZuniswapV2Pair.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/abis/ZuniswapV2Pair.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Add-On components/CreateFuturesView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DEX components/Dex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DEX components/Dex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/JanusAddOn.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/JanusAddOn.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/TokenFactory.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/TokenFactory.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/Treasury.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/Treasury.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/interfaces/IJanusAddOn.sol" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/interfaces/ITokenFactory.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/interfaces/ITokenFactory.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/interfaces/ITreasury.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/interfaces/ITreasury.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TokenFactory.t.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TokenFactory.t.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Treasury.t.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Treasury.t.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Whitelist.t.sol" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Whitelist.t.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truffle-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/truffle-config.js" afterDir="false" />
-    </list>
+    <list default="true" id="9c7bb2c3-2516-4c04-9bde-19038e9ba08c" name="Changes" comment="exam changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +95,7 @@
       <workItem from="1655408718316" duration="742000" />
       <workItem from="1655476287052" duration="41571000" />
       <workItem from="1655681225536" duration="10353000" />
+      <workItem from="1655747492171" duration="269000" />
     </task>
     <task id="LOCAL-00001" summary="added some changes">
       <created>1654751079824</created>
@@ -142,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654751079824</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="exam changes">
+      <created>1655747742387</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655747742387</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +130,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some changes" />
+    <MESSAGE value="exam changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="exam changes" />
   </component>
 </project>
